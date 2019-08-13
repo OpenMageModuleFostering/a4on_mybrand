@@ -1,0 +1,71 @@
+<div class = "myproducts">
+
+	<div class = "myproducts-heading">
+		
+		<h1>My Products</h1>	
+		
+	</div>
+	
+	<div class = "myproducts-content">
+	
+		<?php
+		
+		$collection = Mage::getModel('myproduct/myproduct')->getCollection()->setOrder('product_id','asc');
+					 
+		foreach($collection as $data)
+		{ 
+		
+			if($data->getData('brand_id') == $_GET['id'])
+			{
+			
+				$obj = Mage::getModel('catalog/product');
+
+				$product1 = $obj->load($data->getData('cp_id')); 
+
+				$product1->getShortDescription();
+
+				$product1->getDescription();
+
+				$product1->getPrice();
+
+				$product1->getSpecialPrice();
+
+				$product1->getProductUrl();
+			
+		?>
+
+				<div style = "width : 200px;height: 200px;float: left;padding-left: 10px;">
+				
+					<div style="float: left;"> 
+						
+						<a href="<?php echo $product1->getProductUrl(); ?>" class="product-image">
+							
+							<img src="<?php echo $product1->getImageUrl(); ?>" width="135" height="135" />
+						
+						</a>
+						
+						<p> 
+							
+							<center>
+								
+								<a href="<?php echo $product1->getProductUrl() ?>">
+									
+									<?php echo $product1->getName(); ?>
+									
+								</a>
+							
+							</center>
+						
+						</p>
+					
+					</div>
+				
+				</div>
+			
+		<?php
+		
+			}
+
+		} 
+		?>
+	</div>
