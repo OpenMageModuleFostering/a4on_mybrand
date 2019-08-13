@@ -2,7 +2,7 @@
 <config>
 	<modules>
 		<A4on_Mybrand>
-			<version>0.1.0</version>
+			<version>0.1.1</version>
 		</A4on_Mybrand>
 	</modules>
 	<frontend>
@@ -112,7 +112,7 @@
 			
 		</models>
 		<resources>
-			<a40n_mybrand_setup>
+			<mybrand_myproduct_setup>
 				<setup>
 					<module>A4on_Mybrand</module>
 					<class>Mage_Catalog_Model_Resource_Eav_Mysql4_Setup</class>
@@ -120,7 +120,7 @@
 				<connection>
 					<use>core_setup</use>
 				</connection>
-			</a40n_mybrand_setup>
+			</mybrand_myproduct_setup>
 			<mybrand_write>
 				<connection>
 					<use>core_write</use>

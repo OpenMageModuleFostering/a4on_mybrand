@@ -1,20 +1,5 @@
-<link href="http://127.0.0.1/magento/skin/frontend/base/default/css/mybrand.css" rel="stylesheet" type="text/css">
-<script src="http://127.0.0.1/magento/skin/frontend/base/default/js/mybrand.js"></script>
-<script src = "http://127.0.0.1/magento/skin/frontend/base/default/js/vticker.js"></script>
-<script>
-$(function() {
-  $('#example').vTicker({
-	   speed: 500,
-	   pause: 3000,
-	   animation: 'fade',
-	   mousePause: true,
-	   showItems: 1,
-	   height:120
-  });
-});
-</script>
+<?php 
 
-<?php
 class A4on_Mybrand_IndexController extends Mage_Core_Controller_Front_Action
 {
 	function indexAction()
@@ -123,11 +108,31 @@ class A4on_Mybrand_IndexController extends Mage_Core_Controller_Front_Action
 	
 	function brandslistAction()
 	{
+		
 		$productNameArray = array();	
 		$host = $_SERVER[HTTP_HOST];
 		$uri = $_SERVER[REQUEST_URI];
 		$uriArray = explode('/',$uri);
 		$url2 = '/'.$uriArray[1];
+		
+		echo '<link href="http://'.$host.$url2.'/skin/frontend/base/default/css/mybrand.css" rel="stylesheet" type="text/css">';
+		echo '<script src="http://'.$host.$url2.'/skin/frontend/base/default/js/mybrand.js"></script>';
+		echo '<script src = "http://'.$host.$url2.'/skin/frontend/base/default/js/vticker.js"></script>';
+		echo '<script>';
+		echo '$.noConflict();';
+		echo '</script>';
+		echo "<script>";
+		echo "	jQuery(function() {";
+		echo "	  jQuery('#example').vTicker({";
+		echo "		   speed: 500,";
+		echo "		   pause: 3000,";
+		echo "		   animation: 'fade',";
+		echo "		   mousePause: true,";
+		echo "		   showItems: 1,";
+		echo "		   height:120";
+		echo "	  });";
+		echo "	});";
+		echo "</script>";
 		
 		$collection = Mage::getModel('mybrand/mybrand')->getCollection()->setOrder('brand_id','asc');
 		echo '<div>';
@@ -148,5 +153,6 @@ class A4on_Mybrand_IndexController extends Mage_Core_Controller_Front_Action
 		} 
 		echo '</ul>';
 		echo '</div>';
+		
 	}
 }
