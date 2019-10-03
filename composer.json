@@ -1,16 +1,19 @@
 {
-    "name": "OpenMageModuleFostering/A4on_Mybrand",
+    "name": "OpenMageModuleFostering\/A4on_Mybrand",
     "type": "magento-module",
     "license": "OSL-3.0",
     "homepage": "",
     "description": "Used to Create Brands and assign products.",
     "authors": [
-    {
-        "name": "MohanaKrishnan",
-        "email": "krishnan3151990@gmail.com"
-    }
-],
+        {
+            "name": "MohanaKrishnan",
+            "email": "krishnan3151990@gmail.com"
+        }
+    ],
     "suggest": {
-        "magento-hackathon/magento-composer-installer": "*"
-    }
+        "magento-hackathon\/magento-composer-installer": "*"
+    },
+    "keywords": [
+        "openmage-module"
+    ]
 }
